@@ -45,6 +45,16 @@ The provided training and validation split supplied with the dataset was used fo
 
 ---
 
+# Condensed Literature Review
+
+Automated steel surface defect classification has been widely studied using both traditional machine learning and deep learning approaches. Earlier research commonly relied on handcrafted texture descriptors such as Histogram of Oriented Gradients (HOG), Local Binary Patterns (LBP), and Gray Level Co-occurrence Matrix (GLCM), together with classifiers such as Support Vector Machines (SVMs). These methods are computationally efficient and perform well when combined with appropriate image preprocessing techniques.
+
+Recent studies have shown that convolutional neural networks, particularly transfer learning models such as ResNet50, achieve significantly higher classification accuracy by automatically learning hierarchical image features from large datasets. However, the influence of preprocessing on pretrained deep learning models is still an active area of research.
+
+Based on these findings, this project implements both a traditional HOG + SVM baseline and a ResNet50 transfer learning model while investigating how image preprocessing influences the performance of each approach.
+
+---
+
 # Development Environment
 
 - Python 3.13
@@ -128,6 +138,18 @@ The experiments completed during this milestone produced several useful observat
 - ResNet50 achieved very high classification accuracy for both input conditions.
 - The raw grayscale representation slightly outperformed the custom multichannel preprocessing for ResNet50 in the current experiments.
 - These results suggest that handcrafted preprocessing provides greater benefit to the traditional feature-based classifier than to the pretrained deep learning model used in this project.
+
+---
+
+# Roadblocks & Pivots
+
+Several challenges were encountered while completing this milestone.
+
+One challenge involved ensuring that the preprocessing implementation matched the workflow proposed in the project presentation. Initially, the classical baseline only used the CLAHE and Gaussian blur stages before feature extraction. The implementation was later revised so that Canny edge information also contributed to the extracted HOG features through feature fusion, making the implementation consistent with the proposed preprocessing pipeline.
+
+Another challenge involved configuring and validating the ResNet50 transfer learning pipeline. Additional testing was required to verify dataset loading, preprocessing functions, model training, and evaluation procedures before obtaining the final experimental results.
+
+Addressing these challenges resulted in a more consistent implementation and established a solid foundation for the remaining work planned for the final project milestone.
 
 ---
 
