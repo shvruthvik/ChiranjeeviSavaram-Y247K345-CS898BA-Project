@@ -1,27 +1,30 @@
-# CS898BA Midterm Project
-## Automated Surface Defect Classification in Manufacturing
+# Steel Surface Defect Detection & Classification
 
-### Student Information
+### CS898BA – Image Analysis and Computer Vision
 
-**Name:** Chiranjeevi Venkata Shiva Ruthvik Savaram
+## Midterm Progress Report
+
+**Student:** Chiranjeevi Venkata Shiva Ruthvik Savaram
 
 ---
 
 # Project Overview
 
-This repository contains the **Midterm Progress** submission for **CS898BA – Image Analysis and Computer Vision**. The project focuses on automated surface defect classification using both traditional machine learning and deep learning techniques. The work completed in this milestone establishes the preprocessing pipeline, baseline classifier, transfer learning framework, and preliminary experimental results that will be extended during the final project.
+This repository contains my **Midterm Progress** submission for **CS898BA – Image Analysis and Computer Vision**. The project focuses on automated steel surface defect classification using both traditional machine learning and deep learning techniques. During this milestone, I implemented the image preprocessing pipeline, developed a classical machine learning baseline, built a transfer learning framework using ResNet50, and performed preliminary experiments to evaluate different approaches.
 
-The project uses the **NEU Surface Defect Database (NEU-DET)**, which contains six categories of steel surface defects commonly used for image classification research.
+The project uses the **NEU Surface Defect Database (NEU-DET)**, which contains six categories of steel surface defects commonly used for benchmarking image classification algorithms.
 
 ---
 
-# Objectives
+# Project Objectives
 
-- Develop an image preprocessing pipeline.
-- Develop a classical machine learning baseline.
+The primary objectives of this project are:
+
+- Develop a reusable image preprocessing pipeline.
+- Build a traditional machine learning baseline.
 - Implement a deep learning solution using transfer learning.
-- Compare the influence of preprocessing on both approaches.
-- Prepare for the final project milestone.
+- Compare the performance of raw and preprocessed images.
+- Establish a complete framework for the final project milestone.
 
 ---
 
@@ -29,7 +32,7 @@ The project uses the **NEU Surface Defect Database (NEU-DET)**, which contains s
 
 **Dataset:** NEU Surface Defect Database (NEU-DET)
 
-Classes:
+The dataset consists of grayscale steel surface images belonging to the following six defect classes:
 
 - Crazing
 - Inclusion
@@ -38,14 +41,17 @@ Classes:
 - Rolled-in Scale
 - Scratches
 
+The provided training and validation split supplied with the dataset was used for all experiments. The complete dataset is included in this repository to allow the project to be reproduced without any additional downloads.
+
 ---
 
 # Development Environment
 
-- Python 3.x
+- Python 3.13
 - Windows 11
 - Visual Studio Code
-- Git & GitHub
+- Git
+- GitHub
 
 ---
 
@@ -53,13 +59,13 @@ Classes:
 
 ## 1. Image Preprocessing
 
-Implemented a reusable preprocessing pipeline including:
+Implemented a reusable preprocessing pipeline consisting of:
 
-- CLAHE
+- CLAHE (Contrast Limited Adaptive Histogram Equalization)
 - Gaussian Blur
 - Canny Edge Detection
 
-The preprocessing pipeline produces enhanced images for later experimentation.
+The preprocessing pipeline is used throughout the project to generate enhanced images for visualization and model training.
 
 ---
 
@@ -67,61 +73,71 @@ The preprocessing pipeline produces enhanced images for later experimentation.
 
 Implemented a complete HOG + SVM classification pipeline.
 
-Features:
+The baseline includes:
 
 - HOG feature extraction
-- Support Vector Machine classifier
-- Performance evaluation
-- Comparison using raw and preprocessed images
+- Feature fusion using HOG descriptors extracted from both the preprocessed grayscale image and the Canny edge image
+- Support Vector Machine (SVM) classifier
+- Performance evaluation using multiple classification metrics
+- Comparison between raw and preprocessed image inputs
 
 ---
 
 ## 3. Transfer Learning
 
-Implemented a ResNet50 transfer learning pipeline.
+Implemented a ResNet50 transfer learning framework.
 
-Current implementation includes:
+The implementation includes:
 
-- Dataset loading
-- Image transformations
-- Transfer learning with ResNet50
-- Model evaluation
-- Classification metrics
+- Custom dataset loader
+- Image preprocessing and normalization
+- Transfer learning using an ImageNet-pretrained ResNet50 model
+- Fine-tuning of the final residual block and classification layer
+- Performance evaluation using both raw grayscale images and custom three-channel preprocessed images
 
 ---
 
 ## 4. Visualization
 
-Generated visual outputs including:
+Generated several visualizations to summarize the preprocessing pipeline and model performance.
 
-- Preprocessing comparison figures
-- Classification metric comparison charts
+Generated figures include:
+
+- Preprocessing pipeline comparison
+- Baseline classifier metric comparison
+- Confusion matrix comparison
 
 ---
 
-# Preliminary Experimental Results
+# Midterm Experimental Results
 
-| Model | Dataset | Accuracy |
-|--------|---------|----------|
-| HOG + SVM | Raw Images | 86.9% |
-| HOG + SVM | Preprocessed Images | 89.4% |
-| ResNet50 | Raw Images | 99.72% |
-| ResNet50 | Preprocessed Images | 98.61% |
+| Model | Input | Accuracy |
+|--------|-------|----------|
+| HOG + SVM | Raw Images | **86.94%** |
+| HOG + SVM | Preprocessed Feature Fusion | **89.44%** |
+| ResNet50 | Raw Images | **99.72%** |
+| ResNet50 | Preprocessed Images | **99.44%** |
 
 ---
 
 # Observations
 
-- Image preprocessing improved the traditional HOG + SVM baseline.
-- ResNet50 achieved excellent performance on the raw dataset.
-- Preprocessing produced a slight decrease in the preliminary ResNet50 results.
-- These observations will be investigated further during the final project milestone.
+The experiments completed during this milestone produced several useful observations.
+
+- The preprocessing pipeline improved the HOG + SVM baseline by approximately **2.5 percentage points** over the raw-image baseline.
+- ResNet50 achieved very high classification accuracy for both input conditions.
+- The raw grayscale representation slightly outperformed the custom multichannel preprocessing for ResNet50 in the current experiments.
+- These results suggest that handcrafted preprocessing provides greater benefit to the traditional feature-based classifier than to the pretrained deep learning model used in this project.
 
 ---
 
 # Repository Structure
 
-```
+```text
+data/
+    train/
+    validation/
+
 src/
     preprocessing.py
     baseline_classifier.py
@@ -130,9 +146,11 @@ src/
     generate_results_plots.py
 
 outputs/
-    plots/
-    preprocessing_samples/
     baseline_results.json
+    plots/
+        preprocessing_pipeline_comparison.jpg
+        baseline_metric_comparison.jpg
+        confusion_matrices.jpg
 
 README.md
 AI_Log.md
@@ -143,13 +161,13 @@ requirements.txt
 
 # Future Work
 
-The remaining work includes:
+The remaining work for the final project includes:
 
 - Hyperparameter tuning
-- Additional experimentation
-- Cross-validation
-- Confusion matrix analysis
-- Grad-CAM visualization
+- Learning-rate optimization
+- Additional preprocessing experiments
+- Evaluation using additional performance metrics
+- Grad-CAM visualization for model explainability
 - Final report and presentation
 
 ---
@@ -159,13 +177,15 @@ The remaining work includes:
 - Python
 - NumPy
 - OpenCV
+- Matplotlib
 - scikit-learn
 - PyTorch
 - Torchvision
-- Matplotlib
 
 ---
 
 # Conclusion
 
-This milestone establishes the core framework for the final project by implementing image preprocessing, a traditional machine learning baseline, and a transfer learning pipeline using ResNet50. Preliminary experiments demonstrate promising classification performance while highlighting how preprocessing affects different modeling approaches. Future work will focus on hyperparameter tuning, additional evaluation, explainability techniques, and a comprehensive comparison of all models.
+This midterm milestone establishes the core framework for the final project by implementing an image preprocessing pipeline, a traditional HOG + SVM baseline, and a ResNet50 transfer learning model for steel surface defect classification.
+
+The experimental results show that the preprocessing pipeline improves the traditional machine learning approach, while the pretrained ResNet50 model performs slightly better using raw grayscale inputs. These findings provide a solid foundation for the remaining experiments, model improvements, and explainability techniques that will be completed during the final project milestone.

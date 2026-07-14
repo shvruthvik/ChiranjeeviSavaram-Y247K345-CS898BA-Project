@@ -6,11 +6,11 @@
 
 **AI Tool:** Claude (Sonnet 5)
 
-**Prompt:** What development plan should I follow to complete the Midterm Progress milestone while meeting the project requirements?
+**Prompt:** I have to complete the Midterm Progress milestone for my CS898BA project. Can you help me understand the project requirements and suggest a plan for completing each part?
 
-**Response Synopsis:** Received guidance on organizing the milestone into manageable tasks and identifying the required deliverables.
+**Response Synopsis:** Received guidance on understanding the milestone requirements and breaking the work into manageable implementation tasks.
 
-**Changes Made:** Planned the project workflow and verified the repository structure before beginning implementation.
+**Changes Made:** Planned the project workflow and organized the repository before beginning implementation.
 
 ---
 
@@ -20,11 +20,11 @@
 
 **AI Tool:** Claude (Sonnet 5)
 
-**Prompt:** How should I organize the image preprocessing pipeline so it can be reused throughout the project?
+**Prompt:** How should I design my preprocessing pipeline so I can reuse it throughout the project instead of writing the same code multiple times?
 
-**Response Synopsis:** Received recommendations for designing a reusable preprocessing pipeline and applying consistent image enhancement techniques.
+**Response Synopsis:** Received recommendations for creating reusable preprocessing functions and applying consistent image enhancement techniques.
 
-**Changes Made:** Implemented a preprocessing module using CLAHE, Gaussian blur, and Canny edge detection.
+**Changes Made:** Implemented reusable preprocessing functions for CLAHE, Gaussian blur, and Canny edge detection.
 
 ---
 
@@ -34,9 +34,9 @@
 
 **AI Tool:** Claude (Sonnet 5)
 
-**Prompt:** What is a suitable baseline model for evaluating this image classification dataset?
+**Prompt:** What would be a good traditional machine learning baseline for this steel surface defect dataset?
 
-**Response Synopsis:** Received guidance on extracting HOG features and training an SVM classifier as the baseline model.
+**Response Synopsis:** Received guidance on using HOG features with an SVM classifier as the baseline model.
 
 **Changes Made:** Implemented HOG feature extraction and trained the baseline SVM classifier.
 
@@ -48,11 +48,11 @@
 
 **AI Tool:** Claude (Sonnet 5)
 
-**Prompt:** How can I compare the performance of models trained on raw and preprocessed images using the same evaluation procedure?
+**Prompt:** How can I fairly compare the performance of models trained using raw images and preprocessed images?
 
-**Response Synopsis:** Received suggestions for evaluating both datasets under identical conditions and comparing their performance metrics.
+**Response Synopsis:** Received suggestions for evaluating both approaches using the same dataset split and evaluation metrics.
 
-**Changes Made:** Generated baseline results for both datasets and documented the comparison.
+**Changes Made:** Generated baseline results for both image conditions and compared their performance.
 
 ---
 
@@ -60,55 +60,55 @@
 
 **Date and Time:** July 11, 2026, 8:30 PM
 
-**AI Tool:** Claude (Sonnet 5)
+**AI Tool:** ChatGPT
 
-**Prompt:** Can you verify that my preprocessing pipeline matches the workflow described in my project proposal before I finalize the baseline results?
+**Prompt:** Can you review my preprocessing pipeline and check whether it matches the workflow I presented in my project proposal?
 
-**Response Synopsis:** Received feedback that the preprocessing pipeline did not fully match the proposed workflow because the Canny edge detection stage was not being applied before feature extraction. Guidance was provided on aligning the implementation with the intended preprocessing sequence.
+**Response Synopsis:** Reviewed the implementation and identified that the preprocessing pipeline did not fully match the proposed workflow because Canny edge information was not contributing to the classifier features.
 
-**Changes Made:** Updated the preprocessing pipeline to include CLAHE, Gaussian blur, and Canny edge detection before feature extraction. Re-ran the baseline experiments, improving the preprocessed accuracy.
+**Changes Made:** Updated the preprocessing pipeline to incorporate Canny edge information into the feature extraction process and reran the baseline experiments.
 
 ---
 
 ## Entry 6
 
-**Date and Time:** July 11, 2026, 8:45 PM
+**Date and Time:** July 11, 2026, 9:00 PM
 
 **AI Tool:** Claude (Sonnet 5)
 
-**Prompt:** What is an appropriate transfer learning approach using ResNet50 for this image classification task?
+**Prompt:** How should I implement transfer learning using ResNet50 for this image classification project?
 
-**Response Synopsis:** Received guidance on dataset preparation, transfer learning configuration, and evaluation procedures.
+**Response Synopsis:** Received guidance on dataset preparation, transfer learning configuration, and model evaluation.
 
-**Changes Made:** Implemented the ResNet50 transfer learning pipeline and prepared it for model training and evaluation.
+**Changes Made:** Implemented the ResNet50 transfer learning pipeline.
 
 ---
 
 ## Entry 7
 
-**Date and Time:** July 11, 2026, 9:30 PM
+**Date and Time:** July 11, 2026, 9:45 PM
 
-**AI Tool:** Claude (Sonnet 5)
+**AI Tool:** ChatGPT
 
-**Prompt:** How can I troubleshoot dependency and execution issues while running the project?
+**Prompt:** I'm getting errors while running my project. Can you help me identify what is causing them and how to fix them?
 
-**Response Synopsis:** Received assistance with resolving missing libraries, project structure issues, and execution errors.
+**Response Synopsis:** Helped troubleshoot execution issues, project paths, missing dependencies, and preprocessing pipeline inconsistencies.
 
-**Changes Made:** Resolved project setup issues, identified the missing PyTorch dependency, and updated the execution plan for the transfer learning module.
+**Changes Made:** Corrected project paths, resolved dependency issues, and verified successful execution of the preprocessing and baseline scripts.
 
 ---
 
 ## Entry 8
 
-**Date and Time:** July 11, 2026, 10:15 PM
+**Date and Time:** July 11, 2026, 10:20 PM
 
-**AI Tool:** Claude (Sonnet 5)
+**AI Tool:** ChatGPT
 
-**Prompt:** What is an effective way to visualize preprocessing results and model performance?
+**Prompt:** Can you help me generate figures that clearly show the preprocessing pipeline and compare my baseline model results?
 
-**Response Synopsis:** Received recommendations for generating comparison figures and evaluation plots for documentation.
+**Response Synopsis:** Suggested creating qualitative preprocessing figures together with quantitative comparison charts and confusion matrices.
 
-**Changes Made:** Created preprocessing comparison images and model performance visualization plots.
+**Changes Made:** Generated preprocessing comparison figures, baseline metric comparison plots, and confusion matrix visualizations.
 
 ---
 
@@ -116,13 +116,13 @@
 
 **Date and Time:** July 12, 2026, 9:00 AM
 
-**AI Tool:** Claude (Sonnet 5)
+**AI Tool:** ChatGPT
 
-**Prompt:** Can you help interpret the preliminary results from the baseline model and the ResNet50 model?
+**Prompt:** Can you help me interpret my experimental results and explain why preprocessing affects the traditional model and ResNet50 differently?
 
-**Response Synopsis:** Received explanations comparing the performance of both models and the impact of preprocessing on each approach.
+**Response Synopsis:** Explained the observed differences between the HOG + SVM baseline and the ResNet50 model and helped summarize the experimental findings.
 
-**Changes Made:** Summarized the experimental observations and documented the preliminary experimental results.
+**Changes Made:** Documented the observations and updated the project results section.
 
 ---
 
@@ -130,13 +130,13 @@
 
 **Date and Time:** July 12, 2026, 10:00 AM
 
-**AI Tool:** Claude (Sonnet 5)
+**AI Tool:** ChatGPT
 
-**Prompt:** What sections should be included in the README for the midterm submission?
+**Prompt:** Can you review my README and help me make sure it matches my implementation, experimental results, and project requirements?
 
-**Response Synopsis:** Received recommendations for documenting the project objectives, methodology, implementation details, results, and future work.
+**Response Synopsis:** Reviewed the README for consistency with the implementation, corrected outdated experimental results, and improved the overall organization.
 
-**Changes Made:** Organized the README into a clear and structured format describing the completed work and current progress.
+**Changes Made:** Updated the README with the final implementation details, verified experimental results, and improved the project documentation.
 
 ---
 
@@ -144,12 +144,12 @@
 
 **Date and Time:** July 12, 2026, 11:00 AM
 
-**AI Tool:** Claude (Sonnet 5)
+**AI Tool:** ChatGPT
 
-**Prompt:** Can you review my repository and suggest any improvements before submission?
+**Prompt:** Can you review my entire repository before submission and let me know if anything still needs to be fixed?
 
-**Response Synopsis:** Received feedback on repository organization, documentation quality, and overall project completeness.
+**Response Synopsis:** Reviewed the repository structure, source code, generated outputs, documentation, and project organization to ensure consistency before submission.
 
-**Changes Made:** Finalized the repository documentation, verified the project contents, and prepared the repository for submission.
+**Changes Made:** Finalized the repository, verified the generated outputs, cleaned unnecessary files, and prepared the project for submission.
 
 ---
