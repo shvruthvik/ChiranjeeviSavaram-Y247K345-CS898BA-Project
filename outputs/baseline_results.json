@@ -58,11 +58,11 @@
     "per_class_report": "                 precision    recall  f1-score   support\n\n        crazing       0.80      1.00      0.89        60\n      inclusion       0.94      0.80      0.86        60\n        patches       0.81      0.70      0.75        60\n pitted_surface       0.79      0.77      0.78        60\nrolled-in_scale       1.00      0.97      0.98        60\n      scratches       0.89      0.98      0.94        60\n\n       accuracy                           0.87       360\n      macro avg       0.87      0.87      0.87       360\n   weighted avg       0.87      0.87      0.87       360\n"
   },
   {
-    "condition": "Preprocessed (CLAHE+Blur+Canny) -> HOG -> SVM",
+    "condition": "Preprocessed feature fusion (CLAHE+Blur+Canny) -> HOG -> SVM",
     "accuracy": 0.8944444444444445,
-    "precision_macro": 0.9000376486838046,
-    "recall_macro": 0.8944444444444444,
-    "f1_macro": 0.8929911841563616,
+    "precision_macro": 0.8942631800906448,
+    "recall_macro": 0.8944444444444445,
+    "f1_macro": 0.8922926498621632,
     "confusion_matrix": [
       [
         60,
@@ -74,34 +74,34 @@
       ],
       [
         0,
-        52,
+        54,
         0,
-        1,
-        0,
-        7
-      ],
-      [
-        12,
-        0,
-        45,
-        3,
-        0,
-        0
-      ],
-      [
         2,
-        1,
-        11,
-        46,
+        0,
+        4
+      ],
+      [
+        10,
+        0,
+        43,
+        7,
         0,
         0
       ],
       [
         1,
+        1,
+        13,
+        45,
+        0,
+        0
+      ],
+      [
         0,
         0,
         0,
-        59,
+        0,
+        60,
         0
       ],
       [
@@ -113,6 +113,6 @@
         60
       ]
     ],
-    "per_class_report": "                 precision    recall  f1-score   support\n\n        crazing       0.80      1.00      0.89        60\n      inclusion       0.98      0.87      0.92        60\n        patches       0.80      0.75      0.78        60\n pitted_surface       0.92      0.77      0.84        60\nrolled-in_scale       1.00      0.98      0.99        60\n      scratches       0.90      1.00      0.94        60\n\n       accuracy                           0.89       360\n      macro avg       0.90      0.89      0.89       360\n   weighted avg       0.90      0.89      0.89       360\n"
+    "per_class_report": "                 precision    recall  f1-score   support\n\n        crazing       0.85      1.00      0.92        60\n      inclusion       0.98      0.90      0.94        60\n        patches       0.77      0.72      0.74        60\n pitted_surface       0.83      0.75      0.79        60\nrolled-in_scale       1.00      1.00      1.00        60\n      scratches       0.94      1.00      0.97        60\n\n       accuracy                           0.89       360\n      macro avg       0.89      0.89      0.89       360\n   weighted avg       0.89      0.89      0.89       360\n"
   }
 ]
