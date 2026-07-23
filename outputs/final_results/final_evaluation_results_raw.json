@@ -1,0 +1,133 @@
+{
+    "checkpoint_path": "C:\\Users\\shvru\\OneDrive\\Desktop\\ChiranjeeviSavaram-Y247K345-CS898BA-Project\\outputs\\final_results\\best_tuned_resnet50_raw.pth",
+    "validation_dataset_path": "C:\\Users\\shvru\\OneDrive\\Desktop\\ChiranjeeviSavaram-Y247K345-CS898BA-Project\\data\\validation",
+    "device": "cpu",
+    "input_condition": "raw",
+    "fine_tuning_strategy": "layer4_fc",
+    "learning_rate": 0.0001,
+    "training_batch_size": 32,
+    "evaluation_batch_size": 32,
+    "training_epochs": 5,
+    "best_epoch": 4,
+    "random_seed": 42,
+    "stored_best_validation_accuracy": 1.0,
+    "number_of_evaluation_images": 360,
+    "correct_predictions": 360,
+    "incorrect_predictions": 0,
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1_score": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1_score": 1.0,
+    "class_names": [
+        "crazing",
+        "inclusion",
+        "patches",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+    ],
+    "classification_report": {
+        "crazing": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 60.0
+        },
+        "inclusion": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 60.0
+        },
+        "patches": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 60.0
+        },
+        "pitted_surface": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 60.0
+        },
+        "rolled-in_scale": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 60.0
+        },
+        "scratches": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 60.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 360.0
+        },
+        "weighted avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 360.0
+        }
+    },
+    "confusion_matrix": [
+        [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            60,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            60,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            60,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            60,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            60
+        ]
+    ]
+}

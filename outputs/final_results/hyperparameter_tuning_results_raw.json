@@ -1,0 +1,150 @@
+{
+    "device": "cpu",
+    "random_seed": 42,
+    "input_condition": "raw",
+    "selection_metric": "best_validation_accuracy",
+    "number_of_experiments": 5,
+    "epochs_per_experiment": 5,
+    "tuning_decision": "Raw is the default tuning condition because it performed slightly better than the preprocessed ResNet50 condition during Milestone 2. The condition can be changed with the --condition argument.",
+    "training_loop_note": "The tuning script uses a separate training loop so that every experiment can be reset with the same random seed and tracked independently.",
+    "results": [
+        {
+            "name": "Midterm Configuration",
+            "learning_rate": 0.0001,
+            "batch_size": 32,
+            "fine_tuning_strategy": "layer4_fc",
+            "epochs": 5,
+            "best_epoch": 4,
+            "best_validation_accuracy": 1.0,
+            "execution_time_seconds": 172.54934287071228,
+            "history": {
+                "training_loss": [
+                    0.9424949453936683,
+                    0.10624044400950274,
+                    0.031166697127951518,
+                    0.03173938152483768,
+                    0.02152171288099554
+                ],
+                "validation_accuracy": [
+                    0.8944444444444445,
+                    0.9972222222222222,
+                    0.9944444444444445,
+                    1.0,
+                    0.9944444444444445
+                ]
+            }
+        },
+        {
+            "name": "Lower Learning Rate",
+            "learning_rate": 5e-05,
+            "batch_size": 32,
+            "fine_tuning_strategy": "layer4_fc",
+            "epochs": 5,
+            "best_epoch": 5,
+            "best_validation_accuracy": 0.9944444444444445,
+            "execution_time_seconds": 173.13841605186462,
+            "history": {
+                "training_loss": [
+                    1.3235485434532166,
+                    0.4419980555772781,
+                    0.11554789319634437,
+                    0.06660473501930635,
+                    0.04912073559438189
+                ],
+                "validation_accuracy": [
+                    0.8361111111111111,
+                    0.9777777777777777,
+                    0.9888888888888889,
+                    0.9861111111111112,
+                    0.9944444444444445
+                ]
+            }
+        },
+        {
+            "name": "Higher Learning Rate",
+            "learning_rate": 0.0002,
+            "batch_size": 32,
+            "fine_tuning_strategy": "layer4_fc",
+            "epochs": 5,
+            "best_epoch": 5,
+            "best_validation_accuracy": 1.0,
+            "execution_time_seconds": 196.2879364490509,
+            "history": {
+                "training_loss": [
+                    0.5711416274723079,
+                    0.03578668863823017,
+                    0.01628932816674933,
+                    0.023322055625936224,
+                    0.014251390367280691
+                ],
+                "validation_accuracy": [
+                    0.8777777777777778,
+                    0.9972222222222222,
+                    0.9972222222222222,
+                    0.9944444444444445,
+                    1.0
+                ]
+            }
+        },
+        {
+            "name": "Smaller Batch",
+            "learning_rate": 0.0001,
+            "batch_size": 16,
+            "fine_tuning_strategy": "layer4_fc",
+            "epochs": 5,
+            "best_epoch": 2,
+            "best_validation_accuracy": 1.0,
+            "execution_time_seconds": 168.32511353492737,
+            "history": {
+                "training_loss": [
+                    0.7237533566024569,
+                    0.10152971882166134,
+                    0.047157502346413416,
+                    0.046537593657720006,
+                    0.04757114277066042
+                ],
+                "validation_accuracy": [
+                    0.9722222222222222,
+                    1.0,
+                    0.9972222222222222,
+                    0.9944444444444445,
+                    0.9944444444444445
+                ]
+            }
+        },
+        {
+            "name": "Classifier Only",
+            "learning_rate": 0.0001,
+            "batch_size": 32,
+            "fine_tuning_strategy": "fc_only",
+            "epochs": 5,
+            "best_epoch": 4,
+            "best_validation_accuracy": 0.9,
+            "execution_time_seconds": 146.1425483226776,
+            "history": {
+                "training_loss": [
+                    1.6250220431221856,
+                    1.357818611462911,
+                    1.1416537668969897,
+                    0.9875793761677212,
+                    0.8471713874075147
+                ],
+                "validation_accuracy": [
+                    0.575,
+                    0.8722222222222222,
+                    0.8972222222222223,
+                    0.9,
+                    0.9
+                ]
+            }
+        }
+    ],
+    "best_configuration": {
+        "name": "Midterm Configuration",
+        "learning_rate": 0.0001,
+        "batch_size": 32,
+        "fine_tuning_strategy": "layer4_fc",
+        "best_epoch": 4,
+        "best_validation_accuracy": 1.0
+    }
+}
