@@ -24,6 +24,7 @@
   - [5. Final Model Evaluation](#5-final-model-evaluation)
   - [6. Grad-CAM Explainability](#6-grad-cam-explainability)
   - [7. Visualization](#7-visualization)
+  - [8. Virtual Demonstration](#8-virtual-demonstration)
 - [Experimental Results](#experimental-results)
 - [Observations](#observations)
 - [Roadblocks & Pivots](#roadblocks--pivots)
@@ -56,6 +57,7 @@ The primary objectives of this project are:
 - Evaluate the final model using multiple computer vision metrics.
 - Visualize model predictions using Grad-CAM.
 - Develop a complete and reproducible computer vision pipeline.
+- Demonstrate the final trained model processing representative validation images in batch format.
 
 ---
 
@@ -131,10 +133,12 @@ The overall workflow implemented in this project is illustrated below.
              │                           │
              └─────────────┬─────────────┘
                            ▼
-                  Final Model Evaluation
+                Final Model Evaluation
                            │
-                           ▼
-                 Grad-CAM Visualization
+             ┌─────────────┴─────────────┐
+             │                           │
+             ▼                           ▼
+     Grad-CAM Visualization      Virtual Demonstration
 ```
 
 The pipeline integrates both traditional computer vision techniques and modern deep learning methods, allowing direct comparison between handcrafted feature-based classification and transfer learning.
@@ -336,8 +340,41 @@ The generated figures include:
 - Hyperparameter optimization comparison
 - Final confusion matrix
 - Grad-CAM visualizations
+- Virtual demonstration prediction summary
 
 These visualizations provide both qualitative and quantitative evidence supporting the effectiveness of the implemented computer vision pipeline while making the experimental results easier to interpret.
+
+---
+
+## 8. Virtual Demonstration
+
+To satisfy the batch-format virtual demonstration requirement, `demo_pipeline.py` loads the final tuned ResNet50 checkpoint and runs inference on one representative validation image from each of the six defect classes. The script displays the actual class, predicted class, confidence score, and prediction result for each image while also saving a visual summary.
+
+No additional model training is performed during the demonstration.
+
+**Run:**
+
+```bash
+python src/demo_pipeline.py
+```
+**Result: 6/6 correct predictions**
+
+| Class | Predicted | Confidence | Result |
+|---|---|---:|---|
+| crazing | crazing | 99.95% | Correct |
+| inclusion | inclusion | 93.33% | Correct |
+| patches | patches | 99.91% | Correct |
+| pitted_surface | pitted_surface | 99.66% | Correct |
+| rolled-in_scale | rolled-in_scale | 99.86% | Correct |
+| scratches | scratches | 99.85% | Correct |
+
+<p align="center">
+    <img src="outputs/demo/demo_predictions_raw.png" width="900">
+</p>
+
+<p align="center">
+<b>Figure 7.</b> Demonstration of the trained pipeline correctly classifying one sample image from each defect class, with prediction confidence shown for each.
+</p>
 
 ---
 
@@ -412,7 +449,8 @@ The completed project produced several important observations.
 - Raw grayscale images slightly outperformed the custom three-channel preprocessing when using ResNet50, suggesting that pretrained ImageNet features generalize effectively to this dataset.
 - Hyperparameter optimization demonstrated that multiple training configurations were capable of achieving perfect validation accuracy, indicating that the model is relatively robust to moderate hyperparameter variations.
 - Fine-tuning the final residual block together with the fully connected layer consistently outperformed training only the classifier layer.
-- - Grad-CAM visualizations provided class-dependent qualitative evidence: localized defects such as patches and scratches showed strong correspondence with visible defect regions, while diffuse texture-based classes produced broader and less precisely localized activation patterns.
+- Grad-CAM visualizations provided class-dependent qualitative evidence: localized defects such as patches and scratches showed strong correspondence with visible defect regions, while diffuse texture-based classes produced broader and less precisely localized activation patterns.
+- The virtual demonstration showed that the complete inference pipeline correctly classified representative images from all six defect classes. Inclusion produced the lowest confidence score at **93.33%**, consistent with it being one of the more visually ambiguous defect classes observed during the project.
 
 ---
 
@@ -446,6 +484,7 @@ SteelDefect_CS898BA_Project/
 │   ├── hyperparameter_tuning.py
 │   ├── evaluate_model.py
 │   ├── gradcam_visualization.py
+│   ├── demo_pipeline.py
 │   ├── generate_preprocessing_samples.py
 │   └── generate_results_plots.py
 │
@@ -463,11 +502,17 @@ SteelDefect_CS898BA_Project/
 │   │   └── gradcam_all_classes_raw.png
 │   │
 │   ├── final_results/
+│   │   ├── best_tuned_resnet50_raw.pth
+│   │   ├── final_classification_report_raw.txt
+│   │   ├── final_evaluation_results_raw.json
+│   │   └── hyperparameter_tuning_results_raw.json
+│   │
 │   └── demo/
+│       └── demo_predictions_raw.png
 │
 ├── README.md
 ├── AI_Log.md
-├── requirements.txt
+└── requirements.txt
 ```
 
 ---
@@ -510,9 +555,12 @@ python src/evaluate_model.py
 
 # Step 6 - Generate Grad-CAM visualizations
 python src/gradcam_visualization.py
+
+# Step 7 - Run the virtual demonstration
+python src/demo_pipeline.py
 ```
 
-The generated plots, evaluation metrics, confusion matrices, Grad-CAM visualizations, and trained model outputs will automatically be saved inside the corresponding folders within the **outputs/** directory.
+The generated plots, evaluation metrics, confusion matrices, Grad-CAM visualizations, trained model outputs, and virtual demonstration results will automatically be saved inside the corresponding folders within the **outputs/** directory.
 
 ---
 
@@ -562,7 +610,9 @@ The final model achieved:
 - **1.0000 Macro F1-score**
 - **1.0000 Weighted F1-score**
 
-Finally, Grad-CAM visualization was incorporated to provide qualitative explanations of the model's predictions. The generated activation maps provided partial, class-dependent insight into the model's decision process. Localized defects showed clearer correspondence between attention and visible defect regions, while diffuse texture-based defects produced broader activation patterns.
+Grad-CAM visualization was incorporated to provide qualitative explanations of the model's predictions. The generated activation maps provided partial, class-dependent insight into the model's decision process. Localized defects showed clearer correspondence between attention and visible defect regions, while diffuse texture-based defects produced broader activation patterns.
+
+Finally, a virtual demonstration confirmed that the complete computer vision pipeline successfully classified representative validation images from all six defect classes, providing an end-to-end demonstration of the deployed inference workflow.
 
 Overall, this project satisfies the objectives of designing, implementing, optimizing, evaluating, and interpreting a complete computer vision solution for automated steel surface defect classification. The completed pipeline demonstrates how classical computer vision techniques and modern deep learning approaches can effectively complement one another to achieve highly accurate and interpretable image classification results.
 
